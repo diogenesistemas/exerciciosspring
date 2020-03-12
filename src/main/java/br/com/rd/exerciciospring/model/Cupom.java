@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -13,7 +14,7 @@ import java.util.Date;
 @AllArgsConstructor
 @Entity
 @Table(name = "TB_CUPOM")
-public class Cupom {
+public class Cupom implements Serializable {
     /* TODO Campos:
     ID_CUPOM Long (primary key)
      ID_CLIENTE Long
@@ -31,4 +32,5 @@ public class Cupom {
     private String dataVenda;
     @Column(name = "VL_VENDA")
     private BigDecimal valor;
+
 }
