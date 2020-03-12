@@ -4,9 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
@@ -24,11 +22,16 @@ public class CupomItem implements Serializable {
         QT_PRODUTO Long
         VL_PRODUTO BigDecimal*/
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID_CUPOM_ITEM")
     private Long idCupomItem;
     @Column(name = "ID_CUPOM")
     private Long idCupom;
-    @Column(name = "ID_PRODUTO")
+   // @JoinColumn(name ="ID_PRODUTO", referencedColumnName = "ID_PRODUTO")
+   @JoinColumn(name ="ID_PRODUTO")
+
+   @Column(name = "ID_PRODUTO")
     private Long idProduto;
     @Column(name = "QT_PRODUTO")
     private Long quantidadeProduto;

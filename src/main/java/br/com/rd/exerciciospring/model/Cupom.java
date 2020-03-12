@@ -8,6 +8,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -32,5 +33,10 @@ public class Cupom implements Serializable {
     private String dataVenda;
     @Column(name = "VL_VENDA")
     private BigDecimal valor;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "ID_CUPOM")
+//    @JoinColumn(name = "ID_CUPOM", referencedColumnName = "ID_CUPOM")
+    private List<CupomItem> items;
 
 }

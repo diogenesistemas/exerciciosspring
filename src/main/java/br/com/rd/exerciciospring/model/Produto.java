@@ -4,9 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 
 
@@ -20,6 +18,8 @@ public class Produto implements Serializable {
     //TODO ID_PRODUTO Long (primary key)
     // DS_PRODUTO String
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID_PRODUTO")
     private Long idProduto;
     @Column(name = "DS_PRODUTO")
