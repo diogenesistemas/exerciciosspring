@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.websocket.server.PathParam;
 import java.util.List;
 
 @RestController
@@ -18,7 +19,7 @@ public class CupomController {
     private CupomService service;
 
     @GetMapping("/cupom")
-    public List<Cupom> buscaPorIdEData(@RequestParam Long id, String data){
+    public List<Cupom> buscaPorIdEData(@PathParam("id") Long id, @PathParam("data") String data){
        return service.buscaPorIdEData(id, data);
     }
 
